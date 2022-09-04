@@ -97,3 +97,12 @@ ALTER TABLE foundations ADD COLUMN approval VARCHAR(255) DEFAULT NULL;
 ALTER TABLE foundations ADD COLUMN create_date TIMESTAMP DEFAULT NULL ;
 
 UPDATE foundations SET approval ='qwanjai_admin' WHERE foundations."status" ='APPROVED';
+
+CREATE TABLE IF NOT EXISTS fdn_rejected (
+	fdn_rejected_uuid VARCHAR (50) NOT NULL,
+	fdn_uuid VARCHAR (50) NOT NULL,
+	detail TEXT NOT NULL ,
+	create_date TIMESTAMP ,
+    PRIMARY KEY (fdn_rejected_uuid),
+  FOREIGN KEY (fdn_uuid)
+      REFERENCES foundations (fdn_uuid));
