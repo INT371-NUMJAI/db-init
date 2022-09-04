@@ -91,3 +91,9 @@ insert into user_posts (user_post_uuid, post_title, post_detail, create_date, us
 values ('ae545ccb-c505-420d-8883-c52bf942c8a5', 'สภากาชาดไทยจับมือองค์กรชั้นนำร่วมพา', 'ไรเฟิลแฟกซ์คาแรคเตอร์ม้านั่ง กระดี๊กระด๊าแป๋ว นาฏยศาลาแตงโมเคส แฟรีตรวจสอบซาดิสต์ความหมายบ๊วย อ่วมฮาราคีรีฮาราคีรี โกะเซ็กซี่ ยาวีสตูดิโอแครอทเซ็นทรัลจิ๊ก จิตพิสัยเพียว', now(), '99a6a0ed-7668-44f4-be7d-8d724fc1aa73', null);
 
 alter table fdns_resources_documents add column create_date timestamp;
+
+ALTER TABLE foundations ADD COLUMN approval VARCHAR(255) DEFAULT NULL;
+
+ALTER TABLE foundations ADD COLUMN create_date TIMESTAMP DEFAULT NULL ;
+
+UPDATE foundations SET approval ='qwanjai_admin' WHERE foundations."status" ='APPROVED';
