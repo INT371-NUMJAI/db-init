@@ -104,6 +104,7 @@ ALTER TABLE foundations ADD COLUMN approval VARCHAR(255) DEFAULT NULL;
 ALTER TABLE foundations ADD COLUMN create_date TIMESTAMP DEFAULT NULL ;
 
 UPDATE foundations SET approval ='qwanjai_admin' WHERE foundations."status" ='APPROVED';
+UPDATE foundations SET create_date = NOW() WHERE fdn_uuid='29536bf0-6fab-4257-be44-463b46a1388e';
 
 CREATE TABLE IF NOT EXISTS fdn_rejected (
 	fdn_rejected_uuid VARCHAR (50) NOT NULL,
