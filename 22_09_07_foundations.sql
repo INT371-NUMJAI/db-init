@@ -1,0 +1,1 @@
+UPDATE foundations SET create_date= NOW() WHERE create_date IS NULL;
