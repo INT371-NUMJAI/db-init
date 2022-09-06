@@ -13,6 +13,8 @@ insert into target_categories values ('10', 'สิ่งแวดล้อม')
 insert into target_categories values ('11', 'สิทธิมนุษยชน');
 
 
+DROP TABLE volunteer_project_target_categories,volunteers_projects_duties, volunteers_projects;
+
 CREATE TABLE IF NOT EXISTS  volunteers_projects (
     volunteer_projects_uuid VARCHAR (50) PRIMARY KEY,
     vp_name VARCHAR (255)  NOT NULL,
