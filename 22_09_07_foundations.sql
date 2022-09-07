@@ -1,1 +1,2 @@
-UPDATE foundations SET create_date= NOW() WHERE create_date IS NULL;
+ALTER TABLE foundations DROP COLUMN create_date;
+ALTER TABLE foundations ADD COLUMN create_date DATE DEFAULT NOW();
