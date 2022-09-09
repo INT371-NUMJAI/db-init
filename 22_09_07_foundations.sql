@@ -13,3 +13,5 @@ ALTER TABLE fdn_projects ADD COLUMN picture_path TEXT;
 ALTER TABLE foundations DROP COLUMN resource_uuid;
 ALTER TABLE foundations ADD COLUMN qrcode_path TEXT;
 ALTER TABLE foundations ADD COLUMN profile_path TEXT;
+
+UPDATE foundations SET status = 'VERIFIED' WHERE status = 'APPROVED';
