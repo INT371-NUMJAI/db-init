@@ -9,3 +9,7 @@ ALTER TABLE fdn_rejected ADD COLUMN create_date DATE DEFAULT NOW();
 
 ALTER TABLE fdn_projects DROP COLUMN resource_uuid;
 ALTER TABLE fdn_projects ADD COLUMN picture_path TEXT;
+
+ALTER TABLE foundations DROP COLUMN resource_uuid;
+ALTER TABLE foundations ADD COLUMN qrcode_path TEXT;
+ALTER TABLE foundations ADD COLUMN profile_path TEXT;
