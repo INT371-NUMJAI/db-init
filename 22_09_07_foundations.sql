@@ -15,3 +15,6 @@ ALTER TABLE foundations ADD COLUMN qrcode_path TEXT;
 ALTER TABLE foundations ADD COLUMN profile_path TEXT;
 
 UPDATE foundations SET status = 'VERIFIED' WHERE status = 'APPROVED';
+
+ALTER TABLE fdn_projects ADD COLUMN fp_detail TEXT;
+ALTER TABLE fdn_projects ADD COLUMN fp_detail_place TEXT;
