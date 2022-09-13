@@ -23,3 +23,6 @@ UPDATE fdn_projects SET fp_detail = 'Lorem ipsum dolor sit amet, consectetur adi
 
 ALTER TABLE fdn_projects ADD COLUMN responsible_person VARCHAR(255);
 UPDATE fdn_projects SET responsible_person = 'John Smith' WHERE responsible_person IS NULL;
+
+ALTER TABLE fdn_projects ADD COLUMN status VARCHAR(50)  DEFAULT 'OPEN' ;
+ALTER TABLE foundations ADD COLUMN name_en VARCHAR(255);
