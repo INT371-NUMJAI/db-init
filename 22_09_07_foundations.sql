@@ -26,3 +26,8 @@ UPDATE fdn_projects SET responsible_person = 'John Smith' WHERE responsible_pers
 
 ALTER TABLE fdn_projects ADD COLUMN status VARCHAR(50)  DEFAULT 'OPEN' ;
 ALTER TABLE foundations ADD COLUMN name_en VARCHAR(255);
+
+ALTER TABLE fdn_projects DROP COLUMN start_date ;
+ALTER TABLE fdn_projects DROP COLUMN end_date ;
+ALTER TABLE fdn_projects ADD COLUMN start_date Date  DEFAULT NOW() ;
+ALTER TABLE fdn_projects ADD COLUMN end_date Date  DEFAULT NOW() ;
