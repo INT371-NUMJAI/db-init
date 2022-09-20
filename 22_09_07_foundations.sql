@@ -31,3 +31,8 @@ ALTER TABLE fdn_projects DROP COLUMN start_date ;
 ALTER TABLE fdn_projects DROP COLUMN end_date ;
 ALTER TABLE fdn_projects ADD COLUMN start_date Date  DEFAULT NOW() ;
 ALTER TABLE fdn_projects ADD COLUMN end_date Date  DEFAULT NOW() ;
+
+DROP TABLE resources CASCADE;
+ALTER TABLE volunteers_projects DROP COLUMN resource_uuid;
+ALTER TABLE fdn_posts DROP COLUMN resource_uuid;
+ALTER TABLE user_posts DROP COLUMN resource_uuid;
