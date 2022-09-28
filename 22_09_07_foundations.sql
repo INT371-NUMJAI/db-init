@@ -36,3 +36,10 @@ DROP TABLE resources CASCADE;
 ALTER TABLE volunteers_projects DROP COLUMN resource_uuid;
 ALTER TABLE fdn_posts DROP COLUMN resource_uuid;
 ALTER TABLE user_posts DROP COLUMN resource_uuid;
+
+CREATE TABLE IF NOT EXISTS report_issue(
+issue_uuid VARCHAR(50) NOT NULL PRIMARY KEY ,
+issue_type VARCHAR(255) NOT NULL,
+detail TEXT NOT NULL,
+reporter VARCHAR(255),
+issue_status VARCHAR(150));
