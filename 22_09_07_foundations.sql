@@ -43,3 +43,39 @@ issue_type VARCHAR(255) NOT NULL,
 detail TEXT NOT NULL,
 reporter VARCHAR(255),
 issue_status VARCHAR(150));
+
+ALTER TABLE volunteers_projects DROP COLUMN LOCATION;
+ALTER TABLE volunteers_projects DROP COLUMN contact_detail;
+ALTER TABLE volunteers_projects ADD COLUMN location_detail TEXT;
+ALTER TABLE volunteers_projects ADD COLUMN location_district VARCHAR(100);
+ALTER TABLE volunteers_projects ADD COLUMN location_subdistrict VARCHAR(100);
+ALTER TABLE volunteers_projects ADD COLUMN location_province VARCHAR(100);
+ALTER TABLE volunteers_projects ADD COLUMN location_postalcose VARCHAR(100);
+ALTER TABLE volunteers_projects ADD COLUMN picture_path VARCHAR(255);
+
+
+CREATE TABLE IF NOT EXISTS volunteer_registered_anonymous (
+volunteer_registered_anonymous_uuid VARCHAR(50) NOT NULL,
+volunteer_projects_uuid VARCHAR(50) NOT NULL,
+fname VARCHAR(50),
+lname VARCHAR(50),
+contact_number VARCHAR(50),
+email VARCHAR(50),
+PRIMARY KEY (volunteer_registered_anonymous_uuid),
+FOREIGN KEY (volunteer_projects_uuid)
+      REFERENCES volunteers_projects (volunteer_projects_uuid));
+
+CREATE TABLE IF NOT EXISTS volunteer_registered(
+volunteer_registered_uuid VARCHAR(50) NOT NULL,
+volunteer_projects_uuid VARCHAR(50) NOT NULL,
+user_uuid VARCHAR(50),
+volunteer_registered_anonymous_uuid VARCHAR(50),
+PRIMARY KEY (volunteer_registered_uuid),
+FOREIGN KEY (volunteer_projects_uuid)
+      REFERENCES volunteers_projects (volunteer_projects_uuid),
+FOREIGN KEY (user_uuid)
+      REFERENCES users (user_uuid),
+FOREIGN KEY (volunteer_registered_anonymous_uuid)
+      REFERENCES volunteer_registered_anonymous (volunteer_registered_anonymous_uuid));
+      
+ALTER TABLE users ADD COLUMN phone_number VARCHAR(10) DEFAULT '0900000000';
