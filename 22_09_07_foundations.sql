@@ -80,9 +80,9 @@ FOREIGN KEY (volunteer_registered_anonymous_uuid)
       
 ALTER TABLE users ADD COLUMN phone_number VARCHAR(10) DEFAULT '0900000000';
 
-CREATE TABLE IF NOT EXISTS volunteers_projects_qulifies (
+CREATE TABLE IF NOT EXISTS volunteers_projects_qualifies (
   volunteer_projects_uuid VARCHAR (50) NOT NULL,
-  qulifies_detail TEXT NOT NULL ,
-    PRIMARY KEY (volunteer_projects_uuid,qulifies_detail),
+  qualifies_detail TEXT NOT NULL ,
+    PRIMARY KEY (volunteer_projects_uuid,qualifies_detail),
   FOREIGN KEY (volunteer_projects_uuid)
       REFERENCES volunteers_projects (volunteer_projects_uuid));
