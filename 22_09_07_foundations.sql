@@ -86,3 +86,5 @@ CREATE TABLE IF NOT EXISTS volunteers_projects_qualifies (
     PRIMARY KEY (volunteer_projects_uuid,qualifies_detail),
   FOREIGN KEY (volunteer_projects_uuid)
       REFERENCES volunteers_projects (volunteer_projects_uuid));
+      
+      ALTER TABLE volunteers_projects DROP COLUMN qualify;
