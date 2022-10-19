@@ -88,3 +88,5 @@ CREATE TABLE IF NOT EXISTS volunteers_projects_qualifies (
       REFERENCES volunteers_projects (volunteer_projects_uuid));
       
       ALTER TABLE volunteers_projects DROP COLUMN qualify;
+      
+      ALTER TABLE volunteers_projects RENAME COLUMN people_register TO people_registered;
