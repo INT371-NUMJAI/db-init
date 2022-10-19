@@ -90,3 +90,18 @@ CREATE TABLE IF NOT EXISTS volunteers_projects_qualifies (
       ALTER TABLE volunteers_projects DROP COLUMN qualify;
       
       ALTER TABLE volunteers_projects RENAME COLUMN people_register TO people_registered;
+      DROP TABLE volunteer_registered,volunteer_registered_anonymous;
+      CREATE TABLE IF NOT EXISTS volunteer_enrolled(
+volunteer_enrolled_uuid VARCHAR(50) NOT NULL,
+volunteer_projects_uuid VARCHAR(50) NOT NULL,
+is_member BOOLEAN,
+user_uuid VARCHAR(50),
+fname VARCHAR(150),
+lname VARCHAR(150),
+contact_number VARCHAR(150),
+email VARCHAR(150),
+PRIMARY KEY (volunteer_enrolled_uuid),
+FOREIGN KEY (volunteer_projects_uuid)
+      REFERENCES volunteers_projects (volunteer_projects_uuid),
+FOREIGN KEY (user_uuid)
+      REFERENCES users (user_uuid));
