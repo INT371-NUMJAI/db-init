@@ -105,3 +105,32 @@ FOREIGN KEY (volunteer_projects_uuid)
       REFERENCES volunteers_projects (volunteer_projects_uuid),
 FOREIGN KEY (user_uuid)
       REFERENCES users (user_uuid));
+      
+      
+      CREATE TABLE IF NOT EXISTS transactions(
+transaction_uuid VARCHAR(50) NOT NULL,
+fdn_project_uuid VARCHAR(50) NOT NULL,
+payment_id VARCHAR(27) NOT NULL,
+amount INTEGER,
+create_date TIMESTAMP DEFAULT NOW(),
+PRIMARY KEY (transaction_uuid),
+FOREIGN KEY (fdn_project_uuid)
+      REFERENCES fdn_projects (fdn_project_uuid));
+
+
+CREATE TABLE IF NOT EXISTS bank_accounts(
+bank_account_uuid VARCHAR(50) NOT NULL,
+bank_brand VARCHAR(50) NOT NULL,
+bank_number VARCHAR(10) NOT NULL,
+account_name VARCHAR(150) NOT NULL,
+fdn_uuid VARCHAR(50) NOT NULL,
+PRIMARY KEY (bank_account_uuid),
+FOREIGN KEY (fdn_uuid)
+      REFERENCES foundations (fdn_uuid));
+
+ALTER TABLE  fdn_projects ADD COLUMN received INTEGER DEFAULT 0 ;
+
+
+ALTER TABLE  fdn_projects 
+    ALTER COLUMN goal TYPE NUMERIC,
+    ALTER COLUMN received TYPE NUMERIC ;
