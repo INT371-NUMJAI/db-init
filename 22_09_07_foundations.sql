@@ -130,7 +130,32 @@ FOREIGN KEY (fdn_uuid)
 
 ALTER TABLE  fdn_projects ADD COLUMN received INTEGER DEFAULT 0 ;
 
-
+CREATE TABLE IF NOT EXISTS withdrawal_request(
+withdrawal_uuid VARCHAR(50) NOT NULL,
+fdn_project_uuid VARCHAR(50) NOT NULL,
+bank_account_uuid VARCHAR(50) NOT NULL ,
+status VARCHAR(20) NOT NULL,
+create_date TIMESTAMP ,
+approve_date TIMESTAMP ,
+PRIMARY KEY (withdrawal_uuid),
+FOREIGN KEY (fdn_project_uuid)
+      REFERENCES fdn_projects (fdn_project_uuid),
+FOREIGN KEY (bank_account_uuid)
+      REFERENCES bank_accounts (bank_account_uuid));
+      
 ALTER TABLE  fdn_projects 
     ALTER COLUMN goal TYPE NUMERIC,
     ALTER COLUMN received TYPE NUMERIC ;
+    
+ALTER TABLE volunteers_projects ADD COLUMN status VARCHAR(50) DEFAULT 'OPEN';
+    
+    CREATE TABLE IF NOT EXISTS articles(
+articles_uuid VARCHAR(50) NOT NULL,
+articles_header TEXT NOT NULL,
+articles_body TEXT NOT NULL ,
+status VARCHAR(20) NOT NULL,
+create_date TIMESTAMP DEFAULT NOW(),
+author_role VARCHAR(50),
+create_by_email VARCHAR(255) ,
+picture_path VARCHAR(255),
+PRIMARY KEY (articles_uuid));
