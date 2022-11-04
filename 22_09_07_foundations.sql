@@ -159,3 +159,7 @@ author_role VARCHAR(50),
 create_by_email VARCHAR(255) ,
 picture_path VARCHAR(255),
 PRIMARY KEY (articles_uuid));
+
+ALTER TABLE users ADD CONSTRAINT username_unique UNIQUE (username);
+
+ALTER TABLE articles ADD CONSTRAINT fk_articles_create_by_email FOREIGN KEY (create_by_email) REFERENCES users (email);
