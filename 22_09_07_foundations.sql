@@ -171,3 +171,6 @@ type_of_fav VARCHAR(20) NOT NULL ,
 fav_ref_uuid VARCHAR(50) NOT NULL,
 create_date TIMESTAMP DEFAULT NOW(),
 PRIMARY KEY (user_fav_uuid ));
+
+ALTER TABLE foundations DROP COLUMN profile_path ; 
+ALTER TABLE users ADD COLUMN profile_path TEXT ;
