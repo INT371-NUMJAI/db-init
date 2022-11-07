@@ -174,3 +174,5 @@ PRIMARY KEY (user_fav_uuid ));
 
 ALTER TABLE foundations DROP COLUMN profile_path ; 
 ALTER TABLE users ADD COLUMN profile_path TEXT ;
+
+ALTER TABLE foundations ADD COLUMN profile_path TEXT ;
