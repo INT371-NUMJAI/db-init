@@ -163,3 +163,11 @@ PRIMARY KEY (articles_uuid));
 ALTER TABLE users ADD CONSTRAINT username_unique UNIQUE (username);
 
 ALTER TABLE articles ADD CONSTRAINT fk_articles_create_by_email FOREIGN KEY (create_by_email) REFERENCES users (email);
+
+CREATE TABLE IF NOT EXISTS user_fav(
+user_fav_uuid VARCHAR(50) NOT NULL,
+user_uuid VARCHAR(50) NOT NULL,
+type_of_fav VARCHAR(20) NOT NULL ,
+fav_ref_uuid VARCHAR(50) NOT NULL,
+create_date TIMESTAMP DEFAULT NOW(),
+PRIMARY KEY (user_fav_uuid ));
