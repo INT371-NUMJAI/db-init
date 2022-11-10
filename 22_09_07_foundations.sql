@@ -176,3 +176,12 @@ ALTER TABLE foundations DROP COLUMN profile_path ;
 ALTER TABLE users ADD COLUMN profile_path TEXT ;
 
 ALTER TABLE foundations ADD COLUMN profile_path TEXT ;
+
+CREATE TABLE IF NOT EXISTS user_fav(
+user_fav_uuid VARCHAR(50) NOT NULL,
+user_email VARCHAR(50) NOT NULL,
+type_of_fav VARCHAR(20) NOT NULL ,
+fav_ref_uuid VARCHAR(50) NOT NULL,
+fav_ref_title VARCHAR(255) NOT NULL,
+create_date TIMESTAMP DEFAULT NOW(),
+PRIMARY KEY (user_fav_uuid ));
