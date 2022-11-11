@@ -185,3 +185,16 @@ fav_ref_uuid VARCHAR(50) NOT NULL,
 fav_ref_title VARCHAR(255) NOT NULL,
 create_date TIMESTAMP DEFAULT NOW(),
 PRIMARY KEY (user_fav_uuid ));
+
+
+CREATE TABLE IF NOT EXISTS fdn_project_progress(
+fdn_project_progress_uuid VARCHAR(50) NOT NULL,
+fdn_project_uuid VARCHAR(50) NOT NULL,
+title VARCHAR(255) NOT NULL,
+detail TEXT  NOT NULL ,
+picture_path VARCHAR(255),
+proceed_date DATE NOT NULL,
+create_date TIMESTAMP DEFAULT NOW(),
+PRIMARY KEY (fdn_project_progress_uuid),
+FOREIGN KEY (fdn_project_uuid)
+      REFERENCES fdn_projects (fdn_project_uuid));
