@@ -198,3 +198,14 @@ create_date TIMESTAMP DEFAULT NOW(),
 PRIMARY KEY (fdn_project_progress_uuid),
 FOREIGN KEY (fdn_project_uuid)
       REFERENCES fdn_projects (fdn_project_uuid));
+      
+      CREATE TABLE IF NOT EXISTS fdn_project_financial(
+fdn_project_financial_uuid VARCHAR(50) NOT NULL,
+fdn_project_uuid VARCHAR(50) NOT NULL,
+detail TEXT NOT NULL,
+quantity VARCHAR(255) NOT NULL ,
+amount INTEGER NOT NULL,
+create_date TIMESTAMP DEFAULT NOW(),
+PRIMARY KEY (fdn_project_financial_uuid),
+FOREIGN KEY (fdn_project_uuid)
+      REFERENCES fdn_projects (fdn_project_uuid));
