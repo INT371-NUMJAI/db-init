@@ -209,3 +209,26 @@ create_date TIMESTAMP DEFAULT NOW(),
 PRIMARY KEY (fdn_project_financial_uuid),
 FOREIGN KEY (fdn_project_uuid)
       REFERENCES fdn_projects (fdn_project_uuid));
+
+ALTER TABLE target_categories ADD COLUMN target_category_name_en VARCHAR(255);
+
+update target_categories set target_category_name_en = 'medical' where target_category_id = '1';
+update target_categories set target_category_name_en = 'education' where target_category_id = '2';
+update target_categories set target_category_name_en = 'children' where target_category_id = '3';
+update target_categories set target_category_name_en = 'disaster' where target_category_id = '4';
+update target_categories set target_category_name_en = 'handicapped' where target_category_id = '5';
+update target_categories set target_category_name_en = 'elder' where target_category_id = '6';
+update target_categories set target_category_name_en = 'valley' where target_category_id = '7';
+update target_categories set target_category_name_en = 'art' where target_category_id = '8';
+update target_categories set target_category_name_en = 'animal' where target_category_id = '9';
+update target_categories set target_category_name_en = 'environment' where target_category_id = '10';
+update target_categories set target_category_name_en = 'human' where target_category_id = '11';
+
+CREATE TABLE IF NOT EXISTS user_suggestion(
+target_category_id VARCHAR(50) NOT NULL,
+user_uuid VARCHAR(255) NOT NULL,
+PRIMARY KEY (target_category_id,user_uuid),
+FOREIGN KEY (target_category_id)
+      REFERENCES target_categories (target_category_id),
+FOREIGN KEY (user_uuid)
+      REFERENCES users (user_uuid));
